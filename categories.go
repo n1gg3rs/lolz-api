@@ -30,10 +30,10 @@ type (
 
 func (c *Client) Categories() ([]Category, error) {
 	var cats getCategoriesResp
-	return cats.Categories, c.get(nil, &cats, "/categories")
+	return cats.Categories, c.get(&cats, "/categories")
 }
 
 func (c *Client) Category(ID int) (Category, error) {
 	var cat getCategoryResp
-	return cat.Category, c.get(nil, &cat, fmt.Sprintf("/categories/%d", ID))
+	return cat.Category, c.get(&cat, fmt.Sprintf("/categories/%d", ID))
 }
